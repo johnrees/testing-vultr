@@ -1,0 +1,16 @@
+name: test
+on: [push]
+jobs:
+  create_or_update_vultr_instance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: theopensystemslab/vultr-action@v1.15
+        with:
+          action: create
+          api_key: ${{ secrets.VULTR_API_KEY }}
+          domain: ${{ secrets.DOMAIN }}}
+          os_id: 387
+          plan: vc2-1c-1gb
+          pullrequest_id: 1
+          region: lhr
+          tag: pullrequest
